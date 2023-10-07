@@ -1,0 +1,12 @@
+D:\mohammed terfa\projects\BurberBreakfast\BurberBreakfast.Contracts\bin\Debug\net7.0\BurberBreakfast.Contracts.deps.json
+D:\mohammed terfa\projects\BurberBreakfast\BurberBreakfast.Contracts\bin\Debug\net7.0\BurberBreakfast.Contracts.dll
+D:\mohammed terfa\projects\BurberBreakfast\BurberBreakfast.Contracts\bin\Debug\net7.0\BurberBreakfast.Contracts.pdb
+D:\mohammed terfa\projects\BurberBreakfast\BurberBreakfast.Contracts\obj\Debug\net7.0\BurberBreakfast.Contracts.csproj.AssemblyReference.cache
+D:\mohammed terfa\projects\BurberBreakfast\BurberBreakfast.Contracts\obj\Debug\net7.0\BurberBreakfast.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\mohammed terfa\projects\BurberBreakfast\BurberBreakfast.Contracts\obj\Debug\net7.0\BurberBreakfast.Contracts.AssemblyInfoInputs.cache
+D:\mohammed terfa\projects\BurberBreakfast\BurberBreakfast.Contracts\obj\Debug\net7.0\BurberBreakfast.Contracts.AssemblyInfo.cs
+D:\mohammed terfa\projects\BurberBreakfast\BurberBreakfast.Contracts\obj\Debug\net7.0\BurberBreakfast.Contracts.csproj.CoreCompileInputs.cache
+D:\mohammed terfa\projects\BurberBreakfast\BurberBreakfast.Contracts\obj\Debug\net7.0\BurberBreakfast.Contracts.dll
+D:\mohammed terfa\projects\BurberBreakfast\BurberBreakfast.Contracts\obj\Debug\net7.0\refint\BurberBreakfast.Contracts.dll
+D:\mohammed terfa\projects\BurberBreakfast\BurberBreakfast.Contracts\obj\Debug\net7.0\BurberBreakfast.Contracts.pdb
+D:\mohammed terfa\projects\BurberBreakfast\BurberBreakfast.Contracts\obj\Debug\net7.0\ref\BurberBreakfast.Contracts.dll

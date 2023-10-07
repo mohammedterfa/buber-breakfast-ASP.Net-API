@@ -1,0 +1,136 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {
+      "ErrorOr/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/ErrorOr.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/ErrorOr.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "BurberBreakfast.Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/BurberBreakfast.Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BurberBreakfast.Contracts.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ErrorOr/1.3.0": {
+      "sha512": "Pr7fPsggiTauAXbxp8D2z/5wZvhgB1zgQ5ScsUeHrRCMT5Rzw3W6k6l1KzJPf8c0ExSSMJBLaaYiCF0hDs3EIw==",
+      "type": "package",
+      "path": "erroror/1.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "erroror.1.3.0.nupkg.sha512",
+        "erroror.nuspec",
+        "icon-square.png",
+        "lib/net6.0/ErrorOr.dll",
+        "lib/net6.0/ErrorOr.xml",
+        "lib/netstandard2.0/ErrorOr.dll",
+        "lib/netstandard2.0/ErrorOr.xml"
+      ]
+    },
+    "BurberBreakfast.Contracts/1.0.0": {
+      "type": "project",
+      "path": "../BurberBreakfast.Contracts/BurberBreakfast.Contracts.csproj",
+      "msbuildProject": "../BurberBreakfast.Contracts/BurberBreakfast.Contracts.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "BurberBreakfast.Contracts >= 1.0.0",
+      "ErrorOr >= 1.3.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\CreatorPC\\.nuget\\packages\\": {},
+    "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\mohammed terfa\\projects\\BurberBreakfast\\BurberBreakfast\\BurberBreakfast.csproj",
+      "projectName": "BurberBreakfast",
+      "projectPath": "D:\\mohammed terfa\\projects\\BurberBreakfast\\BurberBreakfast\\BurberBreakfast.csproj",
+      "packagesPath": "C:\\Users\\CreatorPC\\.nuget\\packages\\",
+      "outputPath": "D:\\mohammed terfa\\projects\\BurberBreakfast\\BurberBreakfast\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\CreatorPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {
+            "D:\\mohammed terfa\\projects\\BurberBreakfast\\BurberBreakfast.Contracts\\BurberBreakfast.Contracts.csproj": {
+              "projectPath": "D:\\mohammed terfa\\projects\\BurberBreakfast\\BurberBreakfast.Contracts\\BurberBreakfast.Contracts.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "dependencies": {
+          "ErrorOr": {
+            "target": "Package",
+            "version": "[1.3.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
