@@ -6,9 +6,8 @@ using ErrorOr;
 using BurberBreakfast.ServicesErrors;
 
 namespace BurberBreakfast.Controllers;
-[ApiController]
-[Route("[controller]")]
-public class BreakfastsController : ControllerBase
+
+public class BreakfastsController : ApiController
 {
     private readonly IBreakfastService _breakfastService;
 
@@ -53,13 +52,14 @@ public class BreakfastsController : ControllerBase
     {
         ErrorOr<Breakfast> getBreakfastResult = _breakfastService.GetBreakfast(id);
 
-        if(getBreakfastResult.IsError &&
-            getBreakfastResult.FirstError == Errors.Breakfast.NotFound){
-            return NotFound();
-        }
-        var breakfast = getBreakfastResult.Value;
+        return getBreakfastResult.Match(
+            breakfast => Ok(MapBreakfastResponse(breakfast)),
+            errors => Problem(errors));
+    }
 
-        var response = new BreakfastResponse(
+    private static BreakfastResponse MapBreakfastResponse(Breakfast breakfast)
+    {
+        return new BreakfastResponse(
             breakfast.Id,
             breakfast.Name,
             breakfast.Description,
@@ -69,7 +69,6 @@ public class BreakfastsController : ControllerBase
             breakfast.Savory,
             breakfast.Sweet
         );
-        return Ok(response);
     }
 
     [HttpPut("{id:guid}")]

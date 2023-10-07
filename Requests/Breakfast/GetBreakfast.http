@@ -1,2 +1,2 @@
-@id=3109d82b-852d-4518-84d4-8e1f03397a74
+@id=3109d82b-852d-4518-84d4-8e1f03397a74    
 GET http://localhost:5062/breakfasts/{{id}}
