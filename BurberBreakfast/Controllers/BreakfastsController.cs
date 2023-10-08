@@ -20,27 +20,26 @@ public class BreakfastsController : ApiController
     public IActionResult CreateBreakfast(CreateBreakfastRequest request)
     {
         var breakfast = new Breakfast(
-            Guid.NewGuid(), 
-            request.Name, 
-            request.Description, 
-            request.StartDateTime, 
-            request.EndDateTime, 
-            DateTime.UtcNow, 
-            request.Savory, 
+            Guid.NewGuid(),
+            request.Name,
+            request.Description,
+            request.StartDateTime,
+            request.EndDateTime,
+            DateTime.UtcNow,
+            request.Savory,
             request.Sweet);
         //ToDO: Save to DB
-        ErrorOr<Created> createBreakfastResult =  _breakfastService.CreateBreakfast(breakfast);
+        ErrorOr<Created> createBreakfastResult = _breakfastService.CreateBreakfast(breakfast);
 
-        if (createBreakfastResult.IsError) 
+        if (createBreakfastResult.IsError)
         {
             return Problem(createBreakfastResult.Errors);
         }
-        
-        return CreatedAtAction(
-            nameof(GetBreakfast),
-            new {id = breakfast.Id},
-            MapBreakfastResponse(breakfast));
+
+        return CreatedAsGetBreakfast(breakfast);
     }
+
+    
 
     [HttpGet("{id:guid}")]
     public IActionResult GetBreakfast(Guid id)
@@ -69,7 +68,9 @@ public class BreakfastsController : ApiController
 
        ErrorOr<UpsertBreakfast> upsertedResult  =   _breakfastService.UpsertBreakfast(breakfast);
 
-        return NoContent();
+        return upsertedResult.Match(
+            upserted => upserted.IsNewlyCreated ? CreatedAsGetBreakfast(breakfast) : NoContent(),
+            errors => Problem(errors));
     }
 
     [HttpDelete("{id:guid}")]
@@ -100,6 +101,15 @@ public class BreakfastsController : ApiController
             breakfast.Savory,
             breakfast.Sweet
         );
+    }
+
+
+    private CreatedAtActionResult CreatedAsGetBreakfast(Breakfast breakfast)
+    {
+        return CreatedAtAction(
+            nameof(GetBreakfast),
+            new { id = breakfast.Id },
+            MapBreakfastResponse(breakfast));
     }
 
 }   
