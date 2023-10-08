@@ -29,22 +29,17 @@ public class BreakfastsController : ApiController
             request.Savory, 
             request.Sweet);
         //ToDO: Save to DB
-        _breakfastService.CreateBreakfast(breakfast);
+        ErrorOr<Created> createBreakfastResult =  _breakfastService.CreateBreakfast(breakfast);
 
-        var response = new BreakfastResponse(
-            breakfast.Id,
-            breakfast.Name,
-            breakfast.Description,
-            breakfast.StartDateTime,
-            breakfast.EndDateTime,
-            breakfast.LastModifiedDateTime,
-            breakfast.Savory,
-            breakfast.Sweet
-        );
+        if (createBreakfastResult.IsError) 
+        {
+            return Problem(createBreakfastResult.Errors);
+        }
+        
         return CreatedAtAction(
             nameof(GetBreakfast),
             new {id = breakfast.Id},
-            response);
+            MapBreakfastResponse(breakfast));
     }
 
     [HttpGet("{id:guid}")]
@@ -57,20 +52,7 @@ public class BreakfastsController : ApiController
             errors => Problem(errors));
     }
 
-    private static BreakfastResponse MapBreakfastResponse(Breakfast breakfast)
-    {
-        return new BreakfastResponse(
-            breakfast.Id,
-            breakfast.Name,
-            breakfast.Description,
-            breakfast.StartDateTime,
-            breakfast.EndDateTime,
-            breakfast.LastModifiedDateTime,
-            breakfast.Savory,
-            breakfast.Sweet
-        );
-    }
-
+   
     [HttpPut("{id:guid}")]
     public IActionResult UpsertBreakfast(Guid id, UpsertBreakfastRequest request)
     {
@@ -85,7 +67,7 @@ public class BreakfastsController : ApiController
             request.Sweet
         );
 
-        _breakfastService.UpsertBreakfast(breakfast);
+       ErrorOr<UpsertBreakfast> upsertedResult  =   _breakfastService.UpsertBreakfast(breakfast);
 
         return NoContent();
     }
@@ -94,7 +76,30 @@ public class BreakfastsController : ApiController
     public IActionResult DeleteBreakfast(Guid id)
     {
 
-        _breakfastService.DeleteBreakfast(id);
-        return NoContent();
+        ErrorOr<Deleted>deletedResult =  _breakfastService.DeleteBreakfast(id);
+
+        return deletedResult.Match(
+            deleted => NoContent(),
+            errors => Problem(errors)
+        );
+        
     }
+
+
+
+
+     private static BreakfastResponse MapBreakfastResponse(Breakfast breakfast)
+    {
+        return new BreakfastResponse(
+            breakfast.Id,
+            breakfast.Name,
+            breakfast.Description,
+            breakfast.StartDateTime,
+            breakfast.EndDateTime,
+            breakfast.LastModifiedDateTime,
+            breakfast.Savory,
+            breakfast.Sweet
+        );
+    }
+
 }   
